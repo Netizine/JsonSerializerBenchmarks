@@ -26,7 +26,7 @@ namespace JsonSerializerBenchmarks
                             PropertyMetadataInitializer = PersonPropInit,
                             ConstructorParameterMetadataInitializer = null,
                             NumberHandling = default,
-                            SerializeHandler = PersonSerializeHandler
+                            SerializeHandler = null
                         };
             
                         _Person = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreateObjectInfo<global::JsonSerializerBenchmarks.Person>(Options, objectInfo);
@@ -42,9 +42,29 @@ namespace JsonSerializerBenchmarks
             global::JsonSerializerBenchmarks.PersonSerializerContext jsonContext = (global::JsonSerializerBenchmarks.PersonSerializerContext)context;
             global::System.Text.Json.JsonSerializerOptions options = context.Options;
         
-            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfo[] properties = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfo[2];
+            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfo[] properties = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfo[5];
         
-            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String> info0 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String>()
+            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.Int64> info0 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.Int64>()
+            {
+                IsProperty = true,
+                IsPublic = true,
+                IsVirtual = false,
+                DeclaringType = typeof(global::JsonSerializerBenchmarks.Person),
+                PropertyTypeInfo = jsonContext.Int64,
+                Converter = null,
+                Getter = static (obj) => ((global::JsonSerializerBenchmarks.Person)obj).Id,
+                Setter = static (obj, value) => ((global::JsonSerializerBenchmarks.Person)obj).Id = value!,
+                IgnoreCondition = null,
+                HasJsonInclude = false,
+                IsExtensionData = false,
+                NumberHandling = default,
+                PropertyName = "Id",
+                JsonPropertyName = null
+            };
+        
+            properties[0] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.Int64>(options, info0);
+            
+            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String> info1 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String>()
             {
                 IsProperty = true,
                 IsPublic = true,
@@ -62,9 +82,9 @@ namespace JsonSerializerBenchmarks
                 JsonPropertyName = null
             };
         
-            properties[0] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.String>(options, info0);
+            properties[1] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.String>(options, info1);
             
-            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String> info1 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String>()
+            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String> info2 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String>()
             {
                 IsProperty = true,
                 IsPublic = true,
@@ -72,34 +92,59 @@ namespace JsonSerializerBenchmarks
                 DeclaringType = typeof(global::JsonSerializerBenchmarks.Person),
                 PropertyTypeInfo = jsonContext.String,
                 Converter = null,
-                Getter = static (obj) => ((global::JsonSerializerBenchmarks.Person)obj).LastName,
-                Setter = static (obj, value) => ((global::JsonSerializerBenchmarks.Person)obj).LastName = value!,
+                Getter = static (obj) => ((global::JsonSerializerBenchmarks.Person)obj).Surname,
+                Setter = static (obj, value) => ((global::JsonSerializerBenchmarks.Person)obj).Surname = value!,
                 IgnoreCondition = null,
                 HasJsonInclude = false,
                 IsExtensionData = false,
                 NumberHandling = default,
-                PropertyName = "LastName",
+                PropertyName = "Surname",
                 JsonPropertyName = null
             };
         
-            properties[1] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.String>(options, info1);
+            properties[2] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.String>(options, info2);
+            
+            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String> info3 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String>()
+            {
+                IsProperty = true,
+                IsPublic = true,
+                IsVirtual = false,
+                DeclaringType = typeof(global::JsonSerializerBenchmarks.Person),
+                PropertyTypeInfo = jsonContext.String,
+                Converter = null,
+                Getter = static (obj) => ((global::JsonSerializerBenchmarks.Person)obj).Email,
+                Setter = static (obj, value) => ((global::JsonSerializerBenchmarks.Person)obj).Email = value!,
+                IgnoreCondition = null,
+                HasJsonInclude = false,
+                IsExtensionData = false,
+                NumberHandling = default,
+                PropertyName = "Email",
+                JsonPropertyName = null
+            };
+        
+            properties[3] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.String>(options, info3);
+            
+            global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String> info4 = new global::System.Text.Json.Serialization.Metadata.JsonPropertyInfoValues<global::System.String>()
+            {
+                IsProperty = true,
+                IsPublic = true,
+                IsVirtual = false,
+                DeclaringType = typeof(global::JsonSerializerBenchmarks.Person),
+                PropertyTypeInfo = jsonContext.String,
+                Converter = null,
+                Getter = static (obj) => ((global::JsonSerializerBenchmarks.Person)obj).Phone,
+                Setter = static (obj, value) => ((global::JsonSerializerBenchmarks.Person)obj).Phone = value!,
+                IgnoreCondition = null,
+                HasJsonInclude = false,
+                IsExtensionData = false,
+                NumberHandling = default,
+                PropertyName = "Phone",
+                JsonPropertyName = null
+            };
+        
+            properties[4] = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreatePropertyInfo<global::System.String>(options, info4);
             
             return properties;
-        }
-        
-        private static void PersonSerializeHandler(global::System.Text.Json.Utf8JsonWriter writer, global::JsonSerializerBenchmarks.Person value)
-        {
-            if (value == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
-        
-            writer.WriteStartObject();
-            writer.WriteString(PropName_firstName, value.FirstName);
-            writer.WriteString(PropName_lastName, value.LastName);
-        
-            writer.WriteEndObject();
         }
     }
 }

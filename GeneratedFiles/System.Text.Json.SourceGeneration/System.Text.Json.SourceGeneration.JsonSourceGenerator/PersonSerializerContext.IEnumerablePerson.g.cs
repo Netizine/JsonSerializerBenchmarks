@@ -25,7 +25,7 @@ namespace JsonSerializerBenchmarks
                                 KeyInfo = null,
                                 ElementInfo = this.Person,
                                 NumberHandling = default,
-                                SerializeHandler = IEnumerablePersonSerializeHandler
+                                SerializeHandler = null
                             };
             
                             _IEnumerablePerson = global::System.Text.Json.Serialization.Metadata.JsonMetadataServices.CreateIEnumerableInfo<global::System.Collections.Generic.IEnumerable<global::JsonSerializerBenchmarks.Person>, global::JsonSerializerBenchmarks.Person>(Options, info);
@@ -35,24 +35,6 @@ namespace JsonSerializerBenchmarks
         
                 return _IEnumerablePerson;
             }
-        }
-        
-        private static void IEnumerablePersonSerializeHandler(global::System.Text.Json.Utf8JsonWriter writer, global::System.Collections.Generic.IEnumerable<global::JsonSerializerBenchmarks.Person> value)
-        {
-            if (value == null)
-            {
-                writer.WriteNullValue();
-                return;
-            }
-        
-            writer.WriteStartArray();
-        
-            foreach (global::JsonSerializerBenchmarks.Person element in value)
-            {
-                PersonSerializeHandler(writer, element);
-            }
-        
-            writer.WriteEndArray();
         }
     }
 }

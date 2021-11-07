@@ -6,7 +6,5 @@ namespace JsonSerializerBenchmarks
     public partial class PersonSerializerContext
     {
         
-        private static readonly global::System.Text.Json.JsonEncodedText PropName_firstName = global::System.Text.Json.JsonEncodedText.Encode("firstName");
-        private static readonly global::System.Text.Json.JsonEncodedText PropName_lastName = global::System.Text.Json.JsonEncodedText.Encode("lastName");
     }
 }
